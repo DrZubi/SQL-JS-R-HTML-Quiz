@@ -1,0 +1,89 @@
+<html>
+   <head>
+      <title>Omar Zubi Quiz Website</title>
+      <link href="quiz.css" rel="stylesheet" type="text/css" media="screen" />
+	  <script src = "quiz.js"></script>	  
+	</head>
+<body>
+		<div id="container">
+	    <div id="header">
+			<h1> Omar Zu'bi's Quiz Website </h1>
+			<img src = "video_game.jpg" alt = "videogame", width = "30%", height = "15%">
+		</div>
+		<div id ="content">
+			<p> <b>Creation of the database description: </b></p>
+			<p> For the database portion for this quiz, I have created a database that keeps track of the user's favorite videogame title and information about it. Gaming and creating videogames is a personal hobby of mine, so I saw the creation of this database appropriate to the requirements of the question. 
+			In my database, I have seven tables: Player, Plays, Fav_Video_Games, Genre, Gameplay, Online_Compatibility, and Console.</p><br>	
+				<ul style = text-align:justify>
+					<li> <b>Player:</b> The player table contains three attributes that records the user's player_id, first_name, and last_name. For this table, each submission is associated to a unique player_id (which is autoincremented and never null). The player_id is also the primary key, and will be used as a foreign key in other tables to ensure a one to one relationship constraint. </li>
+					<li> <b>Plays:</b> The plays table is a relationship table with one foreign key (player_id) and two none-primary attributes total_time_played and time_stamp. This table records the player's total time played in their favorite video game and the last date they played their video game. </li>
+					<li> <b>Fav_Video_Games:</b> The table consists of nine attributes, player_id, purchase_cost, game_title, publisher, date_published, id_genre, id_gameplay, id_console, id_compatibility. This table has five foreign keys to avoid redundancy and duplicates of entries in the database; this is done by having the user select from a preset of values and those values are associated  to integer number.</li>
+					<li> <b>Genre:</b> In the table, the user has five preset options to pick from, and each option has an associated  unique id number, genre_id. Genre_id also serves as a foreign key in the fav_games_table to reduce redundancy in entries.  </li>
+					<li> <b>Gameplay:</b> In the table, the user has six preset options to pick from, and each option has an associated  unique id number, gameplay_id. Gameplay_id also serves as a foreign key in the fav_games_table to reduce redundancy in entries. </li>
+					<li> <b>Online_Compatibility:</b> In the table, the user has two preset options to pick from, and each option has an associated  unique id number, compatibility_id. compatibility_id also serves as a foreign key in the fav_games_table to reduce redundancy in entries. </li>
+					<li> <b>Console:</b> In the table, the user has five preset options to pick from, and each option has an associated  unique id number, console_id. Console_id also serves as a foreign key in the fav_games_table to reduce redundancy in entries.</li>
+				</ul>
+			<p> The ER diagram below shows all the tables created in the database, their attributes, attributes associated data types, and relationships with one another in Crows Foot notation: </p>
+			<img src = "ER.png" alt = "ER Diagram", width = "100%", height = "97%">
+			<p> For the form below, please be sure to not leave any blanks (publisher name and date published could be left out if unknown). Please do not use any special characters or symbols too. Otherwise, an alert box will appear with an error message.
+			<h3> Form used to input data into the database </h3>
+		</div>
+		<div id = "forms">
+			<form name = "Quiz_form" action = "quiz.php" onsubmit = "return testing_input()" method = "post">
+				
+				<p><b>Personal Information: </b></p>
+					<p>First Name <input type="text" size="65" name="first_name"> </p>
+					<p>Last Name <input type="text" size="65" name="last_name"> </p>
+				
+				<p><b>Favorite Game Titles: </p></b>
+					<p>Favorite Game Title: <input type="text" size="55" name="game_title"> </p>
+					<p>Publisher Name <input type="text" size="59.9" name="publisher"> </p>
+					<p>Date Published (YYYY-MM-DD) <input type="text" size="44.7" name="date_published"> </p>
+					<p>Purchase Cost <input type="text" size="62" name="purchase_cost"> </p>
+
+				<p><b> Hours Played: </b></p>
+					<p>Total Hours Played <input type="text" size="57" name="total_time_played"> </p>
+					<p>Last Date Played (YYYY-MM-DD) <input type="text" size="42.7" name="time_stamp"> </p>
+					
+				<p><b>Game Features: </b></p>
+					<p>Genre <select type="text" value="" name="genre"> 
+						<option value = "">Select...</option>
+						<option>First Person Shooter</option>
+						<option>Massively Multiplayer Online</option>
+						<option>Role playing Game</option>
+						<option>Multiplayer Online Battle Arena </option>
+						<option>Other </option></select></p>
+					<p>Gameplay Style <select type="text" value="" name="gameplay"> </p>
+						<option value = "">Select...</option>
+						<option>Top-down Shooter</option>
+						<option>Open World</option>
+						<option>Puzzle</option>
+						<option>Side-scroller</option>
+						<option>Stragety</option>
+						<option>Other </option></select></p>
+					<p>Console <select type="text" value="" name="console_name">
+						<option value = "">Select...</option>
+						<option>PC</option>
+						<option>PS4</option>
+						<option>Xbox 1</option>
+						<option>Nitendo Switch</option>
+						<option>Other</option></select></p>
+					<p>Online Compatibility<select type="text" value="" name="compatibility">
+						<option value = "">Select...</option>
+						<option>Yes</option>
+						<option>No</option></select></p>
+				<br>
+				<p><input type="submit" value="Submit here">
+				<input type="reset" value="Reset" name="Reset">
+				</p>
+				<br>
+				<p>
+				<img src = "gifphy.gif" alt = "Game Gif", width = "103%">
+				<br>
+			</form>
+				
+		</div>
+		</div>
+</body>
+</html>
+

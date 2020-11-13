@@ -1,0 +1,163 @@
+Tables Created in MYSQL for my database:
+
+Player Table:
+CREATE TABLE Player(
+    player_id int(50) AUTO_INCREMENT PRIMARY KEY,
+    first_name char(30) NOT NULL,
+    last_name char(30) NOT NULL
+    )
+
+Gameplay Table:
+	CREATE TABLE Gameplay(
+    id_gameplay int(30) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    gameplay varchar(30) NOT NULL
+    )
+
+Console Table	
+	CREATE TABLE Console(
+    id_console int(30) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    console_name varchar(50) NOT NULL
+    )
+	
+Genre Table
+	CREATE TABLE Genre(
+    id_genre int(30) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    genre varchar(50) NOT NULL
+    )
+
+Online Compatibility Table
+	CREATE TABLE Online_Compatibility(
+    id_compatibility int(30) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    compatibility varchar(50) NOT NULL
+    )
+	
+	
+	
+	
+	INSERT INTO Plays (player_id, total_time_played) VALUES ((SELECT max(player_id) from Player),123);
+	
+Favorite Video Games Table: 
+CREATE TABLE Fav_Video_Games(
+    player_id int(50) PRIMARY KEY,
+    purchase_cost real NOT NULL,
+    game_title varchar(30) NOT NULL,
+    publisher varchar(30) NOT NULL,
+   	date_published DATE NOT NULL,
+    id_genre int(30),
+    id_gameplay int(30),
+    id_console int(30),
+    id_compatibility int(30),
+    FOREIGN KEY (id_genre) REFERENCES Genre(id_genre),
+    FOREIGN KEY (id_gameplay) REFERENCES Gameplay(id_gameplay),
+    FOREIGN KEY (id_console) REFERENCES Console(id_console),
+    FOREIGN KEY (id_compatibility) REFERENCES Online_Compatibility(id_compatibility),
+    FOREIGN KEY (player_id) REFERENCES Player(player_id)
+)
+
+CREATE TABLE Fav_Video_Games(
+    player_id int(50) AUTO_INCREMENT PRIMARY KEY,
+    purchase_cost real NOT NULL,
+    game_title varchar(30) NOT NULL,
+    publisher varchar(30) NOT NULL,
+   	date_published DATE NOT NULL,
+    id_genre int(30),
+    id_gameplay int(30),
+    id_console int(30),
+    id_compatibility int(30),
+    FOREIGN KEY (id_genre) REFERENCES Genre(id_genre),
+    FOREIGN KEY (id_gameplay) REFERENCES Gameplay(id_gameplay),
+    FOREIGN KEY (id_console) REFERENCES Console(id_console),
+    FOREIGN KEY (id_compatibility) REFERENCES Online_Compatibility(id_compatibility)
+)
+
+
+
+
+
+Plays Table:
+CREATE TABLE Plays(
+	player_id int(50),
+	total_time_played int(30),
+	time_stamp date,
+	FOREIGN KEY (player_id) REFERENCES Player(player_id)
+	)
+	
+CREATE TABLE Plays(
+	player_id int(50) AUTO_INCREMENT PRIMARY KEY,
+	total_time_played int(30),
+	time_stamp date
+	)	
+	
+	
+
+TRUNCATE TABLE Player;
+TRUNCATE TABLE Fav_Video_Games;
+TRUNCATE TABLE Online_Compatibility;
+TRUNCATE TABLE Console;
+TRUNCATE TABLE Gameplay;
+TRUNCATE TABLE Genre;
+
+ALTER TABLE Player AUTO_INCREMENT = 1;
+ALTER TABLE Fav_Video_Games AUTO_INCREMENT = 1;
+ALTER TABLE Online_Compatibility AUTO_INCREMENT = 1;
+ALTER TABLE Console AUTO_INCREMENT = 1;
+ALTER TABLE Gameplay AUTO_INCREMENT = 1;
+ALTER TABLE Genre AUTO_INCREMENT = 1;
+ALTER TABLE Plays AUTO_INCREMENT = 1;
+
+
+
+ALTER TABLE Player AUTO_INCREMENT = 1;
+ALTER TABLE Fav_Video_Games AUTO_INCREMENT = 1;
+ALTER TABLE Temp AUTO_INCREMENT = 1;
+
+
+
+
+SELECT G.genre FROM Genre G, Fav_Video_Games F WHERE F.id_genre = G.id_genre;
+SELECT C.compatibility FROM Online_Compatibility C, Fav_Video_Games F WHERE F.id_compatibility = C.id_compatibility;
+SELECT C.console FROM Console C, Fav_Video_Games F WHERE F.id_console = C.id_console;
+SELECT G.gameplay FROM Gameplay G, Fav_Video_Games F WHERE F.id_gameplay = G.id_gameplay;
+SELECT total_time_played FROM Plays;
+SELECT time_stamp FROM Plays;
+SELECT first_name FROM Player;
+SELECT last_name FROM Player;
+SELECT purchase_cost FROM Fav_Video_Games;
+SELECT game_title FROM Fav_Video_Games;
+SELECT publisher FROM Fav_Video_Games;
+SELECT date_published FROM Fav_Video_Games;
+
+
+
+
+
+SELECT G.genre FROM Genre G, Fav_Video_Games F WHERE F.id_genre = G.id_genre
+AND
+SELECT C.compatibility FROM Online_Compatibility C, Fav_Video_Games F WHERE F.id_compatibility = C.id_compatibility
+AND
+SELECT C.console FROM Console C, Fav_Video_Games F WHERE F.id_console = C.id_console
+AND
+SELECT G.gameplay FROM Gameplay G, Fav_Video_Games F WHERE F.id_gameplay = G.id_gameplay
+AND
+SELECT total_time_played FROM Plays
+AND
+SELECT time_stamp FROM Plays
+AND
+SELECT first_name FROM Player
+AND
+SELECT last_name FROM Player
+AND
+SELECT purchase_cost FROM Fav_Video_Games
+AND
+SELECT game_title FROM Fav_Video_Games
+AND
+SELECT publisher FROM Fav_Video_Games
+AND
+SELECT date_published FROM Fav_Video_Games
+AND
+SELECT player_id FROM Player
+
+
+
+
+
