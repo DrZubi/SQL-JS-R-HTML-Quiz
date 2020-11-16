@@ -4,10 +4,10 @@
 </head>
 <body>
 <?php
-$servername = "mydb.itap.purdue.edu";
-$username = "ozubi";
-$password = "iloveie332";
-$dbname = "ozubi";
+$servername = ""; //Blanked for security purposes
+$username = ""; //Blanked for security purposes
+$password = ""; //Blanked for security purposes
+$dbname = ""; //Blanked for security purposes
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
